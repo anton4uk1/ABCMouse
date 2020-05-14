@@ -1,7 +1,5 @@
 "use strict";
-
 const Homepage = require('../../page_objects/homepage/homepage-page');
-
 
 class Login {
     // Reusable selector getters that will help us to avoid selector duplicates

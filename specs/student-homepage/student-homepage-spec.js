@@ -1,4 +1,3 @@
-const assert = require('assert')
 const LoginPage = require('../../page_objects/login/login-page');
 const StudentHomepage = require('../../page_objects/student-homepage/student-homepage-page');
 
@@ -18,9 +17,14 @@ describe('Logout', () => {
 
     it('should be able to logout', () => {
         this.loginPage.login('3y6u4ekk+QA@mail.ru', 'tuktotakou14')
+        this.studentHomepage.contentIFrame.waitForExist();
+        browser.switchToFrame(this.studentHomepage.contentIFrame);
         this.studentHomepage.optionsLnk.waitForClickable();
-        this.studentHomepage.optionsLnk.click();
+        this.studentHomepage.optionsLnk.moveTo();
+        browser.pause(5000);
+        this.studentHomepage.optionsLnk.doubleClick();
         this.studentHomepage.logoutLnk.waitForClickable();
         this.studentHomepage.logoutLnk.click();
     });
 });
+
